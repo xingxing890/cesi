@@ -196,6 +196,23 @@
             font-size: 48px;
             margin-bottom: 10px;
         }
+        
+        /* 视频源选择器 */
+        .video-source-selector {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        
+        .video-source-selector select {
+            background: rgba(0,0,0,0.8);
+            color: white;
+            border: 1px solid #666;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white">
@@ -227,9 +244,7 @@
                                class="bg-gray-800 rounded-full px-4 py-2 pr-10 w-64 focus:outline-none focus:ring-2 focus:ring-purple-500">
                         <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                     </div>
-                    <button class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-full transition">
-                        <i class="fas fa-user mr-2"></i>登录
-                    </button>
+                    
                 </div>
             </div>
         </div>
@@ -249,7 +264,11 @@
                             <div class="flex space-x-4">
                                 <!-- 播放按钮 - 触发模态框 -->
                                 <button class="play-btn bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg transition" 
-                                        onclick="openVideoModal('流浪地球2', 'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8')">
+                                        onclick="openVideoModal('流浪地球2', [
+                                            'https://jpxm3u8.com/20250818/cuEtxjdV/2178kb/hls/index.m3u8',
+                                            'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                                            'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                                        ])">
                                     <i class="fas fa-play mr-2"></i>立即播放
                                 </button>
                                 <button class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg transition">
@@ -268,7 +287,11 @@
                             <div class="flex space-x-4">
                                 <!-- 播放按钮 - 触发模态框 -->
                                 <button class="play-btn bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg transition" 
-                                        onclick="openVideoModal('狂飙', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
+                                        onclick="openVideoModal('狂飙', [
+                                            'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8',
+                                            'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                                            'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                                        ])">
                                     <i class="fas fa-play mr-2"></i>立即播放
                                 </button>
                                 <button class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg transition">
@@ -311,7 +334,11 @@
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4" id="movieGrid">
                 <!-- 电影卡片 1 - 剧情 -->
                 <div class="movie-card movie-item" data-category="剧情">
-                    <div class="relative group cursor-pointer" onclick="openVideoModal('满江红', 'https://jpxm3u8.com/20250818/cuEtxjdV/2178kb/hls/index.m3u8')">
+                    <div class="relative group cursor-pointer" onclick="openVideoModal('满江红', [
+                        'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8',
+                        'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                        'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                    ])">
                         <img src="https://picsum.photos/seed/poster1/200/300" alt="电影海报" class="w-full rounded-lg">
                         <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition rounded-lg flex items-center justify-center">
                             <i class="fas fa-play-circle text-4xl play-btn"></i>
@@ -326,7 +353,11 @@
                 
                 <!-- 电影卡片 2 - 动画 -->
                 <div class="movie-card movie-item" data-category="动画">
-                    <div class="relative group cursor-pointer" onclick="openVideoModal('深海', 'https://media-vip-s.99rego.com/remote_control.php?time=1755593267&cv=0edc6b875ee4fe069dcdb682953faf5b&lr=0&cv2=3f2b055f9f7101bc59676d84890e23f6&file=%2Fvideos%2F213000%2F213474%2F213474.mp4&cv3=2afb7fbcff2aa3509100dea8fe26fa70&cv4=37c944830e8c37f977aec0a08420b280')">
+                    <div class="relative group cursor-pointer" onclick="openVideoModal('深海', [
+                        'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8',
+                        'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                        'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                    ])">
                         <img src="https://picsum.photos/seed/poster2/200/300" alt="电影海报" class="w-full rounded-lg">
                         <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition rounded-lg flex items-center justify-center">
                             <i class="fas fa-play-circle text-4xl play-btn"></i>
@@ -341,7 +372,11 @@
                 
                 <!-- 电影卡片 3 - 动作 -->
                 <div class="movie-card movie-item" data-category="动作">
-                    <div class="relative group cursor-pointer" onclick="openVideoModal('无名', 'https://www.dropbox.com/scl/fi/95jb8zxfygij37iaxwbhl/8_19-_-_-av_35-_.mp4?rlkey=tpyxxndadcqg4agln1vyujp1p&st=7gygq070&dl=1')">
+                    <div class="relative group cursor-pointer" onclick="openVideoModal('无名', [
+                        'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8',
+                        'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                        'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                    ])">
                         <img src="https://picsum.photos/seed/poster3/200/300" alt="电影海报" class="w-full rounded-lg">
                         <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition rounded-lg flex items-center justify-center">
                             <i class="fas fa-play-circle text-4xl play-btn"></i>
@@ -356,7 +391,11 @@
                 
                 <!-- 电影卡片 4 - 体育 -->
                 <div class="movie-card movie-item" data-category="体育">
-                    <div class="relative group cursor-pointer" onclick="openVideoModal('中国乒乓', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
+                    <div class="relative group cursor-pointer" onclick="openVideoModal('中国乒乓', [
+                        'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8',
+                        'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                        'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                    ])">
                         <img src="https://picsum.photos/seed/poster4/200/300" alt="电影海报" class="w-full rounded-lg">
                         <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition rounded-lg flex items-center justify-center">
                             <i class="fas fa-play-circle text-4xl play-btn"></i>
@@ -371,7 +410,11 @@
                 
                 <!-- 电影卡片 5 - 动画 -->
                 <div class="movie-card movie-item" data-category="动画">
-                    <div class="relative group cursor-pointer" onclick="openVideoModal('熊出没·伴我"熊芯"', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
+                    <div class="relative group cursor-pointer" onclick="openVideoModal('熊出没·伴我"熊芯"', [
+                        'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8',
+                        'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                        'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                    ])">
                         <img src="https://picsum.photos/seed/poster5/200/300" alt="电影海报" class="w-full rounded-lg">
                         <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition rounded-lg flex items-center justify-center">
                             <i class="fas fa-play-circle text-4xl play-btn"></i>
@@ -386,7 +429,11 @@
                 
                 <!-- 电影卡片 6 - 喜剧 -->
                 <div class="movie-card movie-item" data-category="喜剧">
-                    <div class="relative group cursor-pointer" onclick="openVideoModal('交换人生', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
+                    <div class="relative group cursor-pointer" onclick="openVideoModal('交换人生', [
+                        'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8',
+                        'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                        'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                    ])">
                         <img src="https://picsum.photos/seed/poster6/200/300" alt="电影海报" class="w-full rounded-lg">
                         <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition rounded-lg flex items-center justify-center">
                             <i class="fas fa-play-circle text-4xl play-btn"></i>
@@ -409,7 +456,11 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-750 transition cursor-pointer" onclick="openVideoModal('阿凡达：水之道', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
+                <div class="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-750 transition cursor-pointer" onclick="openVideoModal('阿凡达：水之道', [
+                    'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8',
+                    'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                    'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                ])">
                     <div class="relative">
                         <img src="https://picsum.photos/seed/new1/400/225" alt="最新电影" class="w-full h-48 object-cover">
                         <span class="absolute top-2 left-2 bg-red-600 px-2 py-1 rounded text-xs">新片</span>
@@ -424,7 +475,11 @@
                     </div>
                 </div>
                 
-                <div class="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-750 transition cursor-pointer" onclick="openVideoModal('黑豹2', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
+                <div class="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-750 transition cursor-pointer" onclick="openVideoModal('黑豹2', [
+                    'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8',
+                    'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                    'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                ])">
                     <div class="relative">
                         <img src="https://picsum.photos/seed/new2/400/225" alt="最新电影" class="w-full h-48 object-cover">
                         <span class="absolute top-2 left-2 bg-red-600 px-2 py-1 rounded text-xs">新片</span>
@@ -439,7 +494,11 @@
                     </div>
                 </div>
                 
-                <div class="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-750 transition cursor-pointer" onclick="openVideoModal('Babylon', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
+                <div class="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-750 transition cursor-pointer" onclick="openVideoModal('Babylon', [
+                    'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8',
+                    'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                    'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                ])">
                     <div class="relative">
                         <img src="https://picsum.photos/seed/new3/400/225" alt="最新电影" class="w-full h-48 object-cover">
                         <span class="absolute top-2 left-2 bg-red-600 px-2 py-1 rounded text-xs">新片</span>
@@ -454,7 +513,11 @@
                     </div>
                 </div>
                 
-                <div class="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-750 transition cursor-pointer" onclick="openVideoModal('菜单', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
+                <div class="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-750 transition cursor-pointer" onclick="openVideoModal('菜单', [
+                    'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8',
+                    'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                    'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                ])">
                     <div class="relative">
                         <img src="https://picsum.photos/seed/new4/400/225" alt="最新电影" class="w-full h-48 object-cover">
                         <span class="absolute top-2 left-2 bg-red-600 px-2 py-1 rounded text-xs">新片</span>
@@ -484,7 +547,11 @@
             
             <div class="bg-gray-800 rounded-lg p-6">
                 <div class="space-y-4">
-                    <div class="flex items-center space-x-4 hover:bg-gray-700 p-3 rounded transition cursor-pointer" onclick="openVideoModal('肖申克的救赎', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
+                    <div class="flex items-center space-x-4 hover:bg-gray-700 p-3 rounded transition cursor-pointer" onclick="openVideoModal('肖申克的救赎', [
+                        'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8',
+                        'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                        'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                    ])">
                         <span class="text-2xl font-bold text-purple-400 w-8">1</span>
                         <img src="https://picsum.photos/seed/top1/60/90" alt="电影海报" class="w-12 h-18 rounded">
                         <div class="flex-1">
@@ -497,7 +564,11 @@
                         </div>
                     </div>
                     
-                    <div class="flex items-center space-x-4 hover:bg-gray-700 p-3 rounded transition cursor-pointer" onclick="openVideoModal('霸王别姬', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
+                    <div class="flex items-center space-x-4 hover:bg-gray-700 p-3 rounded transition cursor-pointer" onclick="openVideoModal('霸王别姬', [
+                        'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8',
+                        'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                        'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                    ])">
                         <span class="text-2xl font-bold text-purple-400 w-8">2</span>
                         <img src="https://picsum.photos/seed/top2/60/90" alt="电影海报" class="w-12 h-18 rounded">
                         <div class="flex-1">
@@ -510,7 +581,11 @@
                         </div>
                     </div>
                     
-                    <div class="flex items-center space-x-4 hover:bg-gray-700 p-3 rounded transition cursor-pointer" onclick="openVideoModal('阿甘正传', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
+                    <div class="flex items-center space-x-4 hover:bg-gray-700 p-3 rounded transition cursor-pointer" onclick="openVideoModal('阿甘正传', [
+                        'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8',
+                        'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                        'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                    ])">
                         <span class="text-2xl font-bold text-purple-400 w-8">3</span>
                         <img src="https://picsum.photos/seed/top3/60/90" alt="电影海报" class="w-12 h-18 rounded">
                         <div class="flex-1">
@@ -523,7 +598,11 @@
                         </div>
                     </div>
                     
-                    <div class="flex items-center space-x-4 hover:bg-gray-700 p-3 rounded transition cursor-pointer" onclick="openVideoModal('泰坦尼克号', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
+                    <div class="flex items-center space-x-4 hover:bg-gray-700 p-3 rounded transition cursor-pointer" onclick="openVideoModal('泰坦尼克号', [
+                        'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8',
+                        'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                        'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                    ])">
                         <span class="text-2xl font-bold text-purple-400 w-8">4</span>
                         <img src="https://picsum.photos/seed/top4/60/90" alt="电影海报" class="w-12 h-18 rounded">
                         <div class="flex-1">
@@ -536,7 +615,11 @@
                         </div>
                     </div>
                     
-                    <div class="flex items-center space-x-4 hover:bg-gray-700 p-3 rounded transition cursor-pointer" onclick="openVideoModal('这个杀手不太冷', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
+                    <div class="flex items-center space-x-4 hover:bg-gray-700 p-3 rounded transition cursor-pointer" onclick="openVideoModal('这个杀手不太冷', [
+                        'https://jpxm3u8.com/20250818/V0IeMLwu/1933kb/hls/index.m3u8',
+                        'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+                        'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+                    ])">
                         <span class="text-2xl font-bold text-purple-400 w-8">5</span>
                         <img src="https://picsum.photos/seed/top5/60/90" alt="电影海报" class="w-12 h-18 rounded">
                         <div class="flex-1">
@@ -572,16 +655,25 @@
             </div>
             <div class="modal-body">
                 <div class="video-container">
+                    <!-- 视频源选择器 -->
+                    <div class="video-source-selector">
+                        <select id="videoSourceSelect" onchange="switchVideoSource()">
+                            <option value="">选择视频源...</option>
+                        </select>
+                    </div>
+                    
                     <!-- 视频播放器 -->
                     <video id="videoPlayer" controls autoplay>
                         您的浏览器不支持视频播放。
                     </video>
+                    
                     <!-- 加载动画 -->
                     <div id="loadingSpinner" class="loading-spinner"></div>
+                    
                     <!-- 错误提示 -->
                     <div id="errorMessage" class="error-message">
                         <i class="fas fa-exclamation-triangle"></i>
-                        <p>视频加载失败，请稍后重试</p>
+                        <p id="errorText">视频加载失败，请尝试切换其他视频源</p>
                     </div>
                 </div>
             </div>
@@ -702,11 +794,13 @@
         
         // 视频播放模态框功能
         let hls = null; // HLS实例
+        let currentVideoSources = []; // 当前视频源列表
+        let currentSourceIndex = 0; // 当前视频源索引
         
-        function openVideoModal(title, videoSrc) {
+        function openVideoModal(title, videoSources) {
             const modal = document.getElementById('videoModal');
             const videoTitle = document.getElementById('videoTitle');
-            const videoPlayer = document.getElementById('videoPlayer');
+            const videoSourceSelect = document.getElementById('videoSourceSelect');
             const loadingSpinner = document.getElementById('loadingSpinner');
             const errorMessage = document.getElementById('errorMessage');
             
@@ -717,11 +811,39 @@
             // 设置视频标题
             videoTitle.textContent = title;
             
+            // 保存视频源列表
+            currentVideoSources = videoSources;
+            currentSourceIndex = 0;
+            
+            // 填充视频源选择器
+            videoSourceSelect.innerHTML = '<option value="">选择视频源...</option>';
+            videoSources.forEach((source, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `视频源 ${index + 1}`;
+                videoSourceSelect.appendChild(option);
+            });
+            
             // 显示模态框
             modal.classList.add('show');
             
             // 禁止背景滚动
             document.body.style.overflow = 'hidden';
+            
+            // 自动尝试第一个视频源
+            if (videoSources.length > 0) {
+                loadVideoSource(videoSources[0]);
+            }
+        }
+        
+        function loadVideoSource(videoSrc) {
+            const videoPlayer = document.getElementById('videoPlayer');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // 重置状态
+            loadingSpinner.style.display = 'block';
+            errorMessage.style.display = 'none';
             
             // 检查视频源类型
             if (videoSrc.includes('.m3u8')) {
@@ -734,35 +856,34 @@
                     
                     // 创建新的HLS实例
                     hls = new Hls({
-                        debug: false,
+                        debug: false, // 关闭调试模式
                         enableWorker: true,
-                        lowLatencyMode: true,
-                        backBufferLength: 90
+                        lowLatencyMode: false,
+                        backBufferLength: 90,
+                        maxBufferLength: 30,
+                        maxMaxBufferLength: 60,
+                        startLevel: -1,
+                        autoStartLoad: true
                     });
                     
-                    // 加载视频源
-                    hls.loadSource(videoSrc);
-                    hls.attachMedia(videoPlayer);
-                    
-                    // 监听事件
+                    // 监听HLS事件
                     hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                        videoPlayer.play().catch(e => {
-                            console.log('自动播放失败:', e);
-                        });
                         loadingSpinner.style.display = 'none';
+                        videoPlayer.play().catch(e => {
+                            console.log('自动播放失败');
+                        });
                     });
                     
                     hls.on(Hls.Events.ERROR, function(event, data) {
-                        console.error('HLS错误:', data);
                         if (data.fatal) {
                             switch(data.type) {
                                 case Hls.ErrorTypes.NETWORK_ERROR:
-                                    console.log('网络错误，尝试恢复...');
-                                    hls.startLoad();
+                                    console.log('网络错误');
+                                    showError();
                                     break;
                                 case Hls.ErrorTypes.MEDIA_ERROR:
-                                    console.log('媒体错误，尝试恢复...');
-                                    hls.recoverMediaError();
+                                    console.log('媒体错误');
+                                    showError();
                                     break;
                                 default:
                                     showError();
@@ -771,19 +892,25 @@
                         }
                     });
                     
+                    // 加载视频源
+                    hls.loadSource(videoSrc);
+                    hls.attachMedia(videoPlayer);
+                    
                 } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
                     // 原生支持HLS（如Safari）
                     videoPlayer.src = videoSrc;
+                    
                     videoPlayer.addEventListener('loadedmetadata', function() {
-                        videoPlayer.play().catch(e => {
-                            console.log('自动播放失败:', e);
-                        });
                         loadingSpinner.style.display = 'none';
+                        videoPlayer.play().catch(e => {
+                            console.log('自动播放失败');
+                        });
                     });
                     
                     videoPlayer.addEventListener('error', function() {
                         showError();
                     });
+                    
                 } else {
                     // 不支持HLS
                     showError('您的浏览器不支持HLS视频流播放');
@@ -791,11 +918,12 @@
             } else {
                 // 普通视频文件
                 videoPlayer.src = videoSrc;
+                
                 videoPlayer.addEventListener('loadedmetadata', function() {
-                    videoPlayer.play().catch(e => {
-                        console.log('自动播放失败:', e);
-                    });
                     loadingSpinner.style.display = 'none';
+                    videoPlayer.play().catch(e => {
+                        console.log('自动播放失败');
+                    });
                 });
                 
                 videoPlayer.addEventListener('error', function() {
@@ -804,15 +932,25 @@
             }
         }
         
+        function switchVideoSource() {
+            const videoSourceSelect = document.getElementById('videoSourceSelect');
+            const selectedIndex = parseInt(videoSourceSelect.value);
+            
+            if (!isNaN(selectedIndex) && currentVideoSources[selectedIndex]) {
+                loadVideoSource(currentVideoSources[selectedIndex]);
+            }
+        }
+        
         function showError(message) {
             const loadingSpinner = document.getElementById('loadingSpinner');
             const errorMessage = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
             
             loadingSpinner.style.display = 'none';
             errorMessage.style.display = 'block';
             
             if (message) {
-                errorMessage.querySelector('p').textContent = message;
+                errorText.textContent = message;
             }
         }
         
